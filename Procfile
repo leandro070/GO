@@ -1,2 +1,1 @@
-web: public
-
+web: GO

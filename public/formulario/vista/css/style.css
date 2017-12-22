@@ -1,0 +1,62 @@
+.backgroud-jumbroton{
+    background-color: #2196F3;
+    color: #ffffff;
+      box-shadow: 2px 2px 5px #999;
+    
+}
+.backgroud-panel{
+    background-color: #2196F3 !important;
+    color: #ffffff !important;
+    
+    
+}
+
+body {
+    background-image: url("../image/doodles.png") ;
+
+}
+.background-container {
+    background-color:#ffffff;
+    
+}
+.panel{
+      box-shadow: 2px 2px 5px #999 !important; 
+}
+.btn{
+	  box-shadow: 2px 2px 5px #999;
+
+}
+
+input[type=number]::-webkit-outer-spin-button,
+
+input[type=number]::-webkit-inner-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+
+}
+
+ 
+
+input[type=number] {
+
+    -moz-appearance:textfield;
+
+}
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  box-shadow: 2px -2px 5px #999;
+
+}
+.espacio{
+	height: 60px;
+
+}

@@ -18,26 +18,26 @@ $(function () {
             $("#guardar").on("click", function (event) {
                 app.validarRegistro();
             });
-            
+
             $('#calendario_nacimiento').datepicker({
                     format: "yyyymmdd"
             });
         };
-      
-            
-        
-        
+
+
+
+
         app.obtenerProvincias = function () {
             document.getElementById("provincia");
 
-            var url = "controlador/Ruteador.php?accion=Provincia&id=-1";
+            var url = "?accion=obtenerProvincias";
 
             $.ajax({
-                type: "POST",
+                type: "GET",
                 dataType:'json',
                 url: url,
                 success: function (datosRecibidos)
-                {    
+                {
                     app.actualizarProvincia(datosRecibidos);
                 },
                 error: function(datosRecibidos){
@@ -46,7 +46,7 @@ $(function () {
                 }
             });
         };
-        
+
         $('#provincia').on('change', function() {
             var OID_provincia= this.value;
             var url = "controlador/Ruteador.php?accion=Departamento&id="+OID_provincia;
@@ -56,7 +56,7 @@ $(function () {
                 url: url,
 
                 success: function (datosRecibidos)
-                {    
+                {
                     app.actualizarDepartamento(datosRecibidos);
                 },
                 error: function(datosRecibidos){
@@ -66,7 +66,7 @@ $(function () {
             });
 
         })
-         
+
         app.limpiarFormulario = function () {    //funcion para limpiar los textbox del modal
             $("#nombre").val('');
             $("#apellido").val('');
@@ -82,7 +82,7 @@ $(function () {
             $("#numero").val(0);
             $("#piso").val(0);
             $("#dpto").val(0);
-            
+
         };
 
         app.validarRegistro = function(){
@@ -124,7 +124,7 @@ $(function () {
             if (nombre.length==0 || nombre.length>45) {
                 listoParaEnviar=false;
 
-            }   
+            }
             var input=nombre;
             for (var i = input.length - 1; i >= 0; i--) {
                 var numero_ilegal=false;
@@ -134,8 +134,8 @@ $(function () {
                         listoParaEnviar=false;
                         S
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
                 for (var o = caracteres_numeros.length - 1; o >= 0; o--) {
@@ -172,8 +172,8 @@ $(function () {
                     if (input[i]==carateres_especiales[a] || input[i]==arroba) {
                         listoParaEnviar=false;
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
                 for (var o = caracteres_numeros.length - 1; o >= 0; o--) {
@@ -200,7 +200,7 @@ $(function () {
             }
             //Validar dni
             if (dni.length==0||dni.length>9) {
-                
+
                 listoParaEnviar=false;
             }
             var input=dni;
@@ -211,8 +211,8 @@ $(function () {
                     if (input[i]==carateres_especiales[a] || input[i]==arroba) {
                         listoParaEnviar=false;
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
                 for (var o = caracteres_letras.length - 1; o >= 0; o--) {
@@ -248,8 +248,8 @@ $(function () {
                     if (input[i]==carateres_especiales[a] || input[i]==arroba) {
                         listoParaEnviar=false;
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
                 for (var o = caracteres_letras.length - 1; o >= 0; o--) {
@@ -290,8 +290,8 @@ $(function () {
 
                         con_arroba=true;
                         break;
-                        
-                }                   
+
+                }
             }
 
             if (!con_arroba) {
@@ -311,8 +311,8 @@ $(function () {
                     if (input[i]==carateres_especiales[a] || input[i]==arroba) {
                         listoParaEnviar=false;
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
                 for (var o = caracteres_letras.length - 1; o >= 0; o--) {
@@ -333,7 +333,7 @@ $(function () {
                 }
 
             }
- 
+
              var input=telefonoalter;
             for (var i = input.length - 1; i >= 0; i--) {
                 var letra_ilegal=false;
@@ -342,8 +342,8 @@ $(function () {
                     if (input[i]==carateres_especiales[a] || input[i]==arroba) {
                         listoParaEnviar=false;
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
                 for (var o = caracteres_letras.length - 1; o >= 0; o--) {
@@ -364,7 +364,7 @@ $(function () {
                 }
 
             }
- 
+
              var input=telefonofijo;
             for (var i = input.length - 1; i >= 0; i--) {
                 var letra_ilegal=false;
@@ -373,8 +373,8 @@ $(function () {
                     if (input[i]==carateres_especiales[a] || input[i]==arroba) {
                         listoParaEnviar=false;
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
                 for (var o = caracteres_letras.length - 1; o >= 0; o--) {
@@ -395,10 +395,10 @@ $(function () {
                 }
 
             }
- 
-            
-            
-            
+
+
+
+
             //Validar direccion
             if (direccion.length==0||direccion.length>45) {
                 listoParaEnviar=false;
@@ -411,8 +411,8 @@ $(function () {
                     if (input[i]==carateres_especiales[a] || input[i]==arroba) {
                         listoParaEnviar=false;
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
                 for (var o = caracteres_numeros.length - 1; o >= 0; o--) {
@@ -447,8 +447,8 @@ $(function () {
                     if (input[i]==carateres_especiales[a] || input[i]==arroba) {
                         listoParaEnviar=false;
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
                 for (var o = caracteres_letras.length - 1; o >= 0; o--) {
@@ -469,12 +469,12 @@ $(function () {
                 }
 
             }
- 
+
             //valida piso y dpto
             if(piso.length>11 || dpto.length>45){
                 listoParaEnviar=false;
             }
-        
+
              var input=piso;
             for (var i = input.length - 1; i >= 0; i--) {
                 var letra_ilegal=false;
@@ -483,8 +483,8 @@ $(function () {
                     if (input[i]==carateres_especiales[a] || input[i]==arroba) {
                         listoParaEnviar=false;
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
                 for (var o = caracteres_letras.length - 1; o >= 0; o--) {
@@ -513,11 +513,11 @@ $(function () {
                     if (input[i]==carateres_especiales[a] || input[i]==arroba) {
                         listoParaEnviar=false;
                         caracter_ilegal=true;
-                        break;                        
-                    }                    
+                        break;
+                    }
 
                 }
-               
+
 
                 if (caracter_ilegal) {
                     alert("El campo DPTO tiene caracteres ESPECIALES ilegales, asegurate de usar letras y numeros ");
@@ -536,7 +536,7 @@ $(function () {
                 app.verificarExistenciaPersona();
             }
 
-        }; 
+        };
 
         /*app.verificarExistenciaDomicilio = function() {
             var url = "controlador/Ruteador.php?accion=ExisteDomi&id=-1";
@@ -591,7 +591,7 @@ $(function () {
                             alert("Usted ya esta dentro registrado en el sistema");
                         }
 
-                    
+
                 },
                 error: function (datosRecibidos) {
                     alert("Error de busqueda");
@@ -645,7 +645,7 @@ $(function () {
                     Piso: piso,
                     Dpto:depto,
                     Departamento: departamento
-                
+
             };
 
             $.ajax({
@@ -667,7 +667,7 @@ $(function () {
             });
         };
 
-        
+
         app.actualizarProvincia = function (data) {
 
             var html = '<option value="0" selected>Seleccione... </option>';
@@ -680,7 +680,7 @@ $(function () {
             html += "<option value='" + data[x].OID_provincia + "'>" + data[x].nombre + "</option>" + "\n";
             x+=1;
             }
-            
+
 
             document.getElementById("provincia").innerHTML = html;
         };
@@ -696,7 +696,7 @@ $(function () {
             html += "<option value='" + data[x].OID_departamento + "'>" + data[x].nombre + "</option>" + "\n";
             x+=1;
             }
-            
+
 
             document.getElementById("departamento").innerHTML = html;
         }

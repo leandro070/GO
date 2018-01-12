@@ -7,7 +7,6 @@ type Route struct {
 	Method      string
 	Pattern     string
 	HandlerFunc http.HandlerFunc
-	Archive     string
 }
 
 type Routes []Route
@@ -19,6 +18,11 @@ var routes = Routes{
 		"GET",
 		"/formulario",
 		FormularioHandler,
-		"public/formulario",
+	},
+	Route{
+		"Provincia",
+		"GET",
+		"/provincia",
+		GetProvinciaHandler,
 	},
 }

@@ -5,6 +5,7 @@ $(function () {
     (function (app) {
 
         app.init = function () {
+
             app.limpiarFormulario();
             app.obtenerProvincias();
             app.bindings();
@@ -30,7 +31,7 @@ $(function () {
         app.obtenerProvincias = function () {
             document.getElementById("provincia");
 
-            var url = "?accion=obtenerProvincias";
+            var url = "/provincia";
 
             $.ajax({
                 type: "GET",

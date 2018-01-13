@@ -5,18 +5,18 @@ import (
 )
 
 type Provincia struct {
-	Nombre string `db:"nombre"`
-	ID     string `db:"OID_provincia"`
+	Nombre string `db:"nombre" json:"nombre"`
+	ID     string `db:"OID_provincia" json:"id_provincia"`
 }
 
 var provincias []Provincia
 
 func obtenerProviciasDB() {
-	db := GetConnectionDB() //tarigo la conexion
+	db := GetConnectionDB() //traigo la conexion
 	defer db.Close()
-	provinciaCollection := db.Collection("provincia") //selecciono la tabla
-	res := provinciaCollection.Find()                 //hago un SELECT * FROM provincia
-	err := res.All(&provincias)                       //guardo todo en provincias
+	provinciaCollection := db.Collection("provincia")   //selecciono la tabla
+	res := provinciaCollection.Find().OrderBy("nombre") //hago un SELECT * FROM provincia
+	err := res.All(&provincias)                         //guardo todo en provincias
 	if err != nil {
 		log.Fatalf("res.All(): %q\n", err)
 	}

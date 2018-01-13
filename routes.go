@@ -23,6 +23,12 @@ var routes = Routes{
 		"Provincia",
 		"GET",
 		"/provincia",
-		GetProvinciaHandler,
+		ProvinciaHandler,
+	},
+	Route{
+		"Persona",
+		"POST",
+		"/persona",
+		PersonaHandler,
 	},
 }

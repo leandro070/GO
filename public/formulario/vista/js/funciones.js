@@ -21,7 +21,7 @@ $(function () {
             });
 
             $('#calendario_nacimiento').datepicker({
-                    format: "yyyymmdd"
+                    format: "dd mm yyyy"
             });
         };
 
@@ -31,7 +31,7 @@ $(function () {
         app.obtenerProvincias = function () {
             document.getElementById("provincia");
 
-            var url = "/provincia";
+            var url = "/provincia?accion=obtenerProvincia";
 
             $.ajax({
                 type: "GET",
@@ -50,9 +50,9 @@ $(function () {
 
         $('#provincia').on('change', function() {
             var OID_provincia= this.value;
-            var url = "controlador/Ruteador.php?accion=Departamento&id="+OID_provincia;
+            var url = "/provincia?accion=obtenerDepartamento&id="+OID_provincia;
             $.ajax({
-                type: "POST",
+                type: "GET",
                 dataType:'json',
                 url: url,
 
@@ -575,7 +575,7 @@ $(function () {
         };*/
 
         app.verificarExistenciaPersona = function(){
-             var url = "controlador/Ruteador.php?accion=ExistePersona&id=-1";
+             var url = "/persona?accion=ExistenciaPersona";
 
             var dni=document.getElementById('dni').value;
 
@@ -678,7 +678,7 @@ $(function () {
 
             for (var i = data.length - 1; i >= 0; i--) {
 
-            html += "<option value='" + data[x].OID_provincia + "'>" + data[x].nombre + "</option>" + "\n";
+            html += "<option value='" + data[x].id_provincia + "'>" + data[x].nombre + "</option>" + "\n";
             x+=1;
             }
 
@@ -694,7 +694,7 @@ $(function () {
 
             for (var i = data.length - 1; i >= 0; i--) {
 
-            html += "<option value='" + data[x].OID_departamento + "'>" + data[x].nombre + "</option>" + "\n";
+            html += "<option value='" + data[x].id_departamento + "'>" + data[x].nombre + "</option>" + "\n";
             x+=1;
             }
 

@@ -578,19 +578,19 @@ $(function () {
              var url = "/formulario/persona?accion=ExistenciaPersona";
 
             var dni=document.getElementById('dni').value;
-
+            var enviarD = '{"dnivalue":"'+dni+'"}';
             $.ajax({
                 url: url,
                 method: 'POST',
                 dataType: 'json',
-                data: {dnivalue:dni},
-                success: function (datosRecibidos) {
-
-                    if(datosRecibidos=="0"){
+                data: enviarD,
+                success: function (data) {
+                  alert(data.respuesta);
+                    if(!data.respuesta){
                         app.guardarRegistro();
-                        } else{
-                            alert("Usted ya esta dentro registrado en el sistema");
-                        }
+                    } else{
+                        alert("Usted ya esta dentro registrado en el sistema");
+                    }
 
 
                 },
@@ -603,7 +603,7 @@ $(function () {
 
         // llamada ajax para guardar alumno
         app.guardarRegistro = function () {  //funcion para guardar un alumno
-            var url = "controlador/Ruteador.php?accion=agregar&id=-1";
+            var url = "/formulario/persona?accion=GuardarPersona";
             // variable que toma todos los datos del formulario
             var estCivil = $('input:radio[name=estado_civil]:checked').val();
             var genero = $('input:radio[name=genero]:checked').val();
@@ -623,10 +623,6 @@ $(function () {
             var numero=document.getElementById('numero').value;
             var piso=document.getElementById('piso').value;
             var depto=document.getElementById('depto').value;
-
-
-
-
 
             var enviarD = {
                     Nombre: nombre,

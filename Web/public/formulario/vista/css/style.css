@@ -2,14 +2,23 @@
     background-color: #2196F3;
     color: #ffffff;
       box-shadow: 2px 2px 5px #999;
-    
+
 }
 .backgroud-panel{
     background-color: #2196F3 !important;
     color: #ffffff !important;
-    
-    
+
+
 }
+
+.titulo1 {
+  font-size: 100px;
+
+}
+.titulo2 {
+  font-size: 35px;
+}
+
 
 body {
     background-image: url("../image/doodles.png") ;
@@ -17,10 +26,10 @@ body {
 }
 .background-container {
     background-color:#ffffff;
-    
+
 }
 .panel{
-      box-shadow: 2px 2px 5px #999 !important; 
+      box-shadow: 2px 2px 5px #999 !important;
 }
 .btn{
 	  box-shadow: 2px 2px 5px #999;
@@ -37,7 +46,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 }
 
- 
+
 
 input[type=number] {
 

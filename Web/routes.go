@@ -19,6 +19,12 @@ var routes = Routes{
 		IndexHandler,
 	},
 	Route{
+		"404",
+		"GET",
+		"/NotFound",
+		NotFoundHandler,
+	},
+	Route{
 		"Formulario",
 		"GET",
 		"/formulario",
